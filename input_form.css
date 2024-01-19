@@ -1,0 +1,54 @@
+/* input_form.css */
+
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+nav {
+    background-color: #333;
+    color: white;
+    padding: 1em;
+    text-align: center;
+}
+
+.container {
+    max-width: 600px;
+    margin: 2em auto;
+    padding: 1em;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form {
+    display: grid;
+    grid-gap: 1em;
+}
+
+label {
+    font-weight: bold;
+}
+
+input,
+select,
+button {
+    padding: 0.5em;
+}
+
+.added-courses {
+    margin-top: 2em;
+}
+
+#coursesList {
+    list-style-type: none;
+    padding: 0;
+}
+
+#coursesList li {
+    margin-bottom: 0.5em;
+}
+
+#continueButton {
+    margin-top: 1em;
+}
