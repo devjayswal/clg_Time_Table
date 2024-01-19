@@ -1,0 +1,13 @@
+Constraints:-
+	1. No two classes in same time of a Faculity.
+	2. No two continue class of a faculity in same branch.
+	3. jitne credit hai utni classes of  theory classes .
+	4.  No two classes in same room  of two different faculity.
+	5. NEC  at 4 to 6  thu or Fri 
+	6. 
+
+
+Inputs:-
+	1. subject_name and subject_Code   
+	2. faculity name  and priority wise 5 subject 
+	3.
