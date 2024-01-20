@@ -1,15 +1,7 @@
+import {sem, branch,days,time_slot} from './dummy_test.js'
 
-//time table (a master time table is object of this class)
-class TimetableClass {
-    constructor(faculty, classroom, day, branch, courses) {
-      this.faculty = faculty;
-      this.classroom = classroom;
-      this.day = day;
-      this.branch = branch;
-      this.courses = courses;
-    }
 
-  }
+
 
 // branch one year(3 branch(aiml,air,aids))
 export class Branch {
@@ -35,8 +27,9 @@ export class Faculty {
 
 // classrooms available
 export class Classroom {
-  constructor(room) {
+  constructor(room,type) {
       this.room = room;
+      this.type = type;
   }
 }
 
@@ -63,6 +56,17 @@ export class TimeSlot {
       this.time = time;
   }
 }
+
+//time table (a master time table is object of this class)
+class TimetableClass {
+  constructor(num1 , num2) {
+    this.timetable = new Array(num1).fill(null).map(()=>new Array(num2).fill(null));
+  }
+
+}
+
+
+
 
 export default TimetableClass;
  
