@@ -1,6 +1,3 @@
-import {sem, branch,days,time_slot} from './dummy_test.js'
-
-
 
 
 // branch one year(3 branch(aiml,air,aids))
@@ -57,17 +54,73 @@ export class TimeSlot {
   }
 }
 
-//time table (a master time table is object of this class)
-class TimetableClass {
+//Master time table (a master time table is object of this class)
+export class Master_Timetable {
   constructor(num1 , num2) {
     this.timetable = new Array(num1).fill(null).map(()=>new Array(num2).fill(null));
   }
+
+  //display time table
+  displayTimetable(){
+    for (let day = 0; day < this.timetable.length; day++) {
+      for (let timeSlot = 0; timeSlot < this.timetable[day].length; timeSlot++) {
+        const cellData = this.timetable[day][timeSlot];
+        console.log(`Day ${day + 1}, Time Slot ${timeSlot + 1}:`, cellData);
+      }
+    }
+  }
+
+}
+
+//faculity time table (a faculity time table is object of this class)
+export class Faculty_Timetable {
+
+  constructor (num1 , num2){
+    this.timetable = new Array(num1).fill(null).map(()=>new Array(num2).fill(null));
+
+  }
+
+  //display time table
+  displayTimetable(){
+    for (let day = 0; day < this.timetable.length; day++) {
+      for (let timeSlot = 0; timeSlot < this.timetable[day].length; timeSlot++) {
+        const cellData = this.timetable[day][timeSlot];
+        console.log(`Day ${day + 1}, Time Slot ${timeSlot + 1}:`, cellData);
+      }
+    }
+  }
+
+
+}
+
+
+//faculity time table (a faculity time table is object of this class)
+export class Classroom_Timetable {
+
+  constructor (num1 , num2){
+    this.timetable = new Array(num1).fill(null).map(()=>new Array(num2).fill(null));
+
+  }
+
+  //display time table
+  displayTimetable(){
+    for (let day = 0; day < this.timetable.length; day++) {
+      for (let timeSlot = 0; timeSlot < this.timetable[day].length; timeSlot++) {
+        const cellData = this.timetable[day][timeSlot];
+        console.log(`Day ${day + 1}, Time Slot ${timeSlot + 1}:`, cellData);
+      }
+    }
+  }
+
 
 }
 
 
 
 
-export default TimetableClass;
+
+
+
+
  
  

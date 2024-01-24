@@ -147,18 +147,16 @@ add_time_slot("5:00-6:00");
 
 
 
-
-
-
-
 // printing dummy test data
-console.log("dummy test data");
-console.log("branch: ", branch);
-console.log("sem: ", sem);
-console.log("faculty: ", faculty);
-console.log("classroom: ", classroom);
-console.log("days: ", days);
-console.log("courses: ", courses);
-console.log("time_slot: ", time_slot);
+function print_dummy(){
+    console.log("dummy test data");
+    console.log("branch: ", branch);
+    console.log("sem: ", sem);
+    console.log("faculty: ", faculty);
+    console.log("classroom: ", classroom);
+    console.log("days: ", days);
+    console.log("courses: ", courses);
+    console.log("time_slot: ", time_slot);
+}
 
 export { branch, sem, faculty, classroom, days, courses, time_slot }

@@ -1,5 +1,5 @@
-import TimetableClass from "./classes";
-import geneticAlgorithm from "./genetic_algorithm";
+import TimetableClass from "./classes.js";
+import {branch, sem, courses,faculty, days,classroom,time_slot } from "./resourse.js";
 
 //generateTimeTable function
 function generateTimeTable( populationSize, generations) {
@@ -56,6 +56,39 @@ function initializePopulation(populationSize) {
 
 //Initalization function
 function generateRandomTimetable(){
+    // Sample data for faculty, course codes, and classrooms (adjust as needed)
+    const facultyData = faculty.map(f => f.name);
+    const courseCodes = courses.map(course => course.course_code);
+    const classrooms = classroom.map(c => c.room);
+
+    // Create a new Timetable object
+    const timetable = new TimetableClass(branch.length * sem.length * days.length , time_slot.length);
+    
+    // intialize the timetable with empty array
+    for(let i =0;i<timetable.timetable.length;i++){
+        for(let j=0;j<timetable.timetable[i].length;j++){
+            timetable.timetable[i][j] = [];
+        }
+    }
+
+    //iterate overreachcell of timetable
+    for (let b = 0; b < branch.length; b++) {
+        for (let s = 0; s < sem.length; s++) {
+            for (let d = 0; d < days.length; d++) {
+                for (let t = 0; t < time_slot.length; t++) {
+                    const randomFaculty = facultyData[Math.floor(Math.random() * facultyData.length)];
+                    const randomCourseCode = courseCodes[Math.floor(Math.random() * courseCodes.length)];
+                    const randomClassroom = classrooms[Math.floor(Math.random() * classrooms.length)];
+                    
+                    //assign the value to the time table cell
+                    timetable.timetable[d+days.length*s+days.length*sem.length*b][t] = [randomFaculty, randomCourseCode, randomClassroom];
+
+                }
+            }
+        }
+    }
+
+    return timetable;
 
 }
 
@@ -63,7 +96,7 @@ function generateRandomTimetable(){
 
 //calculateFitness function
 function calculateFitness(population) {
-
+    
 }
 
 //selection function
@@ -100,7 +133,6 @@ export {
     selection,
     crossover,
     mutation,
-    getBestSchedule,
     generateTimeTable,
     formattedTimetable
 };
