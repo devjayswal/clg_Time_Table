@@ -1,4 +1,4 @@
-import TimetableClass from "./classes.js";
+import { Master_Timetable, Faculty_Timetable,Classroom_Timetable} from "./classes.js";
 import {branch, sem, courses,faculty, days,classroom,time_slot } from "./resourse.js";
 
 //generateTimeTable function
@@ -7,7 +7,7 @@ function generateTimeTable( populationSize, generations) {
     let bestSchedule = geneticAlgorithm(populationSize, generations);
     
 
-    const formattedTimetable = formattedTimetable(bestSchedule);
+    const formattedTimetable = formatTimetable(bestSchedule);
 
     return formattedTimetable;
 }
@@ -15,10 +15,16 @@ function generateTimeTable( populationSize, generations) {
 
 // Genetic Algorithm function
 function geneticAlgorithm(populationSize, generations) {
+    //polulation is the array of master_time_table
+    // Initialize population randomly
     let population = initializePopulation(populationSize);
 
     for (let generation = 0; generation < generations; generation++) {
-        console.log('Population: ', population)
+
+        console.log('Generation: ', generation+1);
+        console.log('----------------------')
+        
+
         // Fitness evaluation
         population = calculateFitness(population);
 
@@ -33,7 +39,11 @@ function geneticAlgorithm(populationSize, generations) {
         
         // Replace the old population with the new one
         population = mutatedPopulation;
+
     }
+
+    // Get the best schedule
+    let finalSchedule = getBestSchedule(population);
 
     // Output the final timetable
     console.log('Final Timetable:', finalSchedule);
@@ -62,7 +72,7 @@ function generateRandomTimetable(){
     const classrooms = classroom.map(c => c.room);
 
     // Create a new Timetable object
-    const timetable = new TimetableClass(branch.length * sem.length * days.length , time_slot.length);
+    const timetable = new Master_Timetable(branch.length * sem.length * days.length , time_slot.length);
     
     // intialize the timetable with empty array
     for(let i =0;i<timetable.timetable.length;i++){
@@ -114,16 +124,32 @@ function mutation(offspringPopulation) {
 
 }
 
+//getBestSchedule function
+function getBestSchedule(population) {
 
+}
 
 
 //format TimeTable function
-function formattedTimetable(timetable){
+function formatTimetable(timetable){
 
     return formattedData;
 }
 
 
+//In this function we need to pass master timetable and it return  faculty time_Table
+function get_faculty_time_table( master ){
+
+
+    return faculity_sheet;
+}
+
+
+// in this function we need to pass master timetable and it return classroom time_table
+function get_classroom_time_table(master){
+
+    return classroom_sheet;
+}
 
 
 export {
@@ -134,7 +160,9 @@ export {
     crossover,
     mutation,
     generateTimeTable,
-    formattedTimetable
+    formattedTimetable,
+    get_classroom_time_table,
+    get_faculty_time_table
 };
 
 // You can export the genetic algorithm function

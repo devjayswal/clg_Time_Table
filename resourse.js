@@ -1,5 +1,5 @@
-import TimetableClass from "./classes.js";
-import { Branch,Sem, Faculty, Classroom, Days, Courses, TimeSlot } from "./classes.js";
+import {Master_Timetable, Faculty_Timetable, Classroom_Timetable} from "./classes.js";
+import { Branch,Sem, Faculty, Classroom, Days, Courses, TimeSlot, Non_editable_cells } from "./classes.js";
 
 // branch array
 const branch = [];
@@ -21,6 +21,9 @@ const days = [];
 
 // time slot array
 const time_slot = [];
+
+// non_editable  cells in  Master_time_table
+const non_editable_cells = [];
 
 //function to add branch
 function add_branch(newbranchname) {
@@ -65,6 +68,12 @@ function add_time_slot(newtimeslotname) {
     time_slot.push(newTimeSlot);
 }
 
+//function to add non_editable_cells
+function add_non_editable_cells(text, row, col){
+    const newNon_editable_cell = new Non_editable_cells(text , row, col);
+    non_editable_cells.push(newNon_editable_cell);
+}
+
 export { 
     branch, 
     sem, 
@@ -72,12 +81,14 @@ export {
     classroom, 
     days, 
     courses, 
-    time_slot, 
+    time_slot,
+    non_editable_cells, 
     add_branch, 
     add_sem, 
     add_faculty, 
     add_classroom, 
     add_days, 
     add_courses, 
-    add_time_slot
+    add_time_slot,
+    add_non_editable_cells
 };
