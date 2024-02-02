@@ -52,6 +52,19 @@ export class TimeSlot {
   }
 }
 
+//slot_Class  it is a cell of master_time_table
+export class Cell {
+  constructor(i, j, text) {
+    this.i = i;
+    this.j = j;
+    this.text = text;
+  }
+
+  display_cells() {
+    console.log("row" + i + "col" + j + "text" + text);
+  }
+}
+
 //Master time table (a master time table is object of this class)
 export class Master_Timetable {
   constructor(num1, num2) {

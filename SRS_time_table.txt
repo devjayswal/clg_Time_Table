@@ -104,9 +104,19 @@
 			-> There should be functionality to modify time table after generation .
 		3.2 Use Case:-
 			-> software are used for schdule classes .
-		3.3 External interface Requirement
+		3.3 External interface Requirement\
+			->
+			->
+			->
 		3.4 Logical database Requirement
+			->
+			->
+			->
 		3.5 Nonfunctional Requirement
+			->
+			->
+			->
+
 
 (4) DELIVER FOR APPROVAL:-
 		-->SRS are approved by "" sir and ""sir 
